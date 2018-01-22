@@ -23,30 +23,20 @@
     </build>
 
     <dependencies>
-        <!--<dependency>-->
-            <!--<groupId>com.github.sakserv</groupId>-->
-            <!--<artifactId>hadoop-mini-clusters</artifactId>-->
-            <!--<version>0.1.14</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>com.github.sakserv</groupId>-->
-            <!--<artifactId>hadoop-mini-clusters-common</artifactId>-->
-            <!--<version>0.1.14</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>com.github.sakserv</groupId>-->
-            <!--<artifactId>hadoop-mini-clusters-mapreduce</artifactId>-->
-            <!--<version>0.1.14</version>-->
-        <!--</dependency>-->
         <dependency>
-            <groupId>org.apache.hadoop</groupId>
-            <artifactId>hadoop-client</artifactId>
-            <version>2.6.3</version>
+            <groupId>com.github.sakserv</groupId>
+            <artifactId>hadoop-mini-clusters</artifactId>
+            <version>0.1.14</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.hadoop</groupId>
-            <artifactId>hadoop-mapreduce-client-core</artifactId>
-            <version>2.6.3</version>
+            <groupId>com.github.sakserv</groupId>
+            <artifactId>hadoop-mini-clusters-common</artifactId>
+            <version>0.1.14</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.sakserv</groupId>
+            <artifactId>hadoop-mini-clusters-mapreduce</artifactId>
+            <version>0.1.14</version>
         </dependency>
 
         <dependency>

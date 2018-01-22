@@ -20,11 +20,7 @@ public class MaxWordLengthReducer extends Reducer<IntWritable, Text, IntWritable
     @Override
     public void reduce(IntWritable key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
         maxLengthWords.clear();
-        for (Text value : values) {
-            String string = value.toString();
-            maxLengthWords.add(string);
-        }
-//        values.forEach(value -> maxLengthWords.add(value.toString()));
+        values.forEach(value -> maxLengthWords.add(value.toString()));
     }
 
     @Override
