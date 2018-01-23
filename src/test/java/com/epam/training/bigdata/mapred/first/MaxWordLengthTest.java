@@ -11,7 +11,9 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class MaxWordLengthTest {
 
@@ -42,11 +44,19 @@ public class MaxWordLengthTest {
 
     @Test
     public void testReducer() throws IOException {
+        String value1 = "abcd";
+        String value2 = "decf";
+
         List<Text> values = new ArrayList<>();
-        values.add(new Text("abcd"));
-        values.add(new Text("decf"));
+        values.add(new Text(value1));
+        values.add(new Text(value2));
+
+        Set<String> result = new HashSet<>();
+        result.add(value1);
+        result.add(value2);
+
         reduceDriver.withInput(new IntWritable(4), values);
-        reduceDriver.withOutput(new IntWritable(4), new Text("[abcd, decf]"));
+        reduceDriver.withOutput(new IntWritable(4), new Text(result.toString()));
         reduceDriver.runTest();
     }
 
@@ -56,7 +66,12 @@ public class MaxWordLengthTest {
         mapReduceDriver.withInput(new LongWritable(), new Text("cd"));
         mapReduceDriver.withInput(new LongWritable(), new Text("abcd"));
         mapReduceDriver.withInput(new LongWritable(), new Text("decf"));
-        mapReduceDriver.withOutput(new IntWritable(4), new Text("[abcd, decf]"));
+
+        Set<String> result = new HashSet<>();
+        result.add("abcd");
+        result.add("decf");
+
+        mapReduceDriver.withOutput(new IntWritable(4), new Text(result.toString()));
         mapReduceDriver.runTest();
     }
 }

@@ -5,16 +5,16 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class MaxWordLengthReducer extends Reducer<IntWritable, Text, IntWritable, Text> {
 
-    private List<String> maxLengthWords;
+    private Set<String> maxLengthWords;
 
     @Override
     public void setup(Context context) throws IOException, InterruptedException {
-        maxLengthWords = new ArrayList<>();
+        maxLengthWords = new HashSet<>();
     }
 
     @Override
@@ -26,7 +26,7 @@ public class MaxWordLengthReducer extends Reducer<IntWritable, Text, IntWritable
     @Override
     public void cleanup(Context context) throws IOException, InterruptedException {
         context.write(
-                new IntWritable(maxLengthWords.get(0).length()),
+                new IntWritable(maxLengthWords.iterator().next().length()),
                 new Text(maxLengthWords.toString())
         );
     }
