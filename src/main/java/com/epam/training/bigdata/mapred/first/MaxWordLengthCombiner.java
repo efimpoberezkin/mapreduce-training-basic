@@ -8,6 +8,9 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Combiner is user for deduplication of words of same length, which is achieved by usage of Set.
+ */
 public class MaxWordLengthCombiner extends Reducer<IntWritable, Text, IntWritable, Text> {
 
     private Set<String> maxLengthWords;

@@ -9,10 +9,14 @@ import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
+/**
+ * Driver class for a Max word length MR job.
+ * Main class should be run with input and output paths as parameters.
+ */
 public class MaxWordLength {
 
     /**
-     * can be run with "src\main\resources\input src\main\resources\output" as program arguments
+     * Can be run with "src\main\resources\input src\main\resources\output" as program arguments.
      */
     public static void main(String[] args) throws Exception {
         System.setProperty("HADOOP_HOME", "C:/hadoop-mini-clusters");
@@ -20,7 +24,7 @@ public class MaxWordLength {
         MRLocalClusterApp.main(null);
 
         Configuration conf = new Configuration();
-        Job job = Job.getInstance(conf, "word count");
+        Job job = Job.getInstance(conf, "Max word length");
         job.setJarByClass(MaxWordLength.class);
 
         job.setMapperClass(MaxWordLengthMapper.class);
