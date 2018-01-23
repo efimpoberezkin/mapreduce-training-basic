@@ -1,6 +1,5 @@
 package com.epam.training.bigdata.mapred.first;
 
-import com.github.sakserv.minicluster.util.WindowsLibsUtils;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
@@ -19,10 +18,6 @@ public class MaxWordLength {
      * Can be run with "src\main\resources\input src\main\resources\output" as program arguments.
      */
     public static void main(String[] args) throws Exception {
-        System.setProperty("HADOOP_HOME", "C:/hadoop-mini-clusters");
-        WindowsLibsUtils.setHadoopHome();
-        MRLocalClusterApp.main(null);
-
         Configuration conf = new Configuration();
         Job job = Job.getInstance(conf, "Max word length");
         job.setJarByClass(MaxWordLength.class);
