@@ -13,17 +13,25 @@ public class MaxWordLengthMapper extends Mapper<LongWritable, Text, IntWritable,
     private IntWritable length = new IntWritable();
     private Text word = new Text();
 
+    private int maxLength = 0;
+
     @Override
     public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
 
         StringTokenizer itr = new StringTokenizer(value.toString());
         while (itr.hasMoreTokens()) {
             String wordString = itr.nextToken();
+            int wordLength = wordString.length();
 
-            word.set(wordString);
-            length.set(wordString.length());
+            if (wordLength >= maxLength) {
 
-            context.write(length, word);
+                maxLength = wordLength;
+
+                word.set(wordString);
+                length.set(wordLength);
+
+                context.write(length, word);
+            }
         }
     }
 }

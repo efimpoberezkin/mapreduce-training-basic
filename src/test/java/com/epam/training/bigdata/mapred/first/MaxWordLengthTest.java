@@ -35,7 +35,6 @@ public class MaxWordLengthTest {
         mapDriver.withInput(new LongWritable(), new Text("abcd"));
         mapDriver.withInput(new LongWritable(), new Text("decf"));
         mapDriver.withOutput(new IntWritable(3), new Text("abc"));
-        mapDriver.withOutput(new IntWritable(2), new Text("cd"));
         mapDriver.withOutput(new IntWritable(4), new Text("abcd"));
         mapDriver.withOutput(new IntWritable(4), new Text("decf"));
         mapDriver.runTest();
