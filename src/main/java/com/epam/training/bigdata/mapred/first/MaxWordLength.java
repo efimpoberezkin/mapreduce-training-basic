@@ -24,6 +24,7 @@ public class MaxWordLength {
         job.setJarByClass(MaxWordLength.class);
 
         job.setMapperClass(MaxWordLengthMapper.class);
+        job.setCombinerClass(MaxWordLengthCombiner.class);
         job.setReducerClass(MaxWordLengthReducer.class);
 
         job.setOutputKeyClass(IntWritable.class);
